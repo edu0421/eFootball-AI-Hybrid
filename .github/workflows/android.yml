@@ -25,15 +25,16 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - name: Export Python executable path
         run: echo "PYTHON_EXECUTABLE=$(which python)" >> "$GITHUB_ENV"
 
       - name: Set up Android SDK
-      - name: Setup Android SDK
-  uses: android-actions/setup-android@v4
-  with:
-    accept-android-sdk-licenses: true
-    log-accepted-android-sdk-licenses: false
+        uses: android-actions/setup-android@v4
+        with:
+          accept-android-sdk-licenses: true
+          log-accepted-android-sdk-licenses: false
+
       - name: Install Android SDK packages
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
