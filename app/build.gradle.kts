@@ -31,13 +31,13 @@ android {
 
 chaquopy {
     defaultConfig {
-        version = "3.11"
+        version = "3.10"
         // GitHub Actions (or another build host) supplies this path.
-        // For local builds, set PYTHON_EXECUTABLE to your Python 3.11 executable.
+        // For local builds, set PYTHON_EXECUTABLE to your Python 3.10 executable.
         System.getenv("PYTHON_EXECUTABLE")?.let { buildPython(it) }
         pip {
             install("numpy")
-            install("opencv-python")   // must exist in Chaquopy's wheel repo; see README
+            install("opencv-python-headless==4.5.1.48")   // Chaquopy has a prebuilt Android wheel for Python 3.10
         }
     }
 }
